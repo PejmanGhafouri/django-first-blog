@@ -1,10 +1,13 @@
 from django.contrib import admin
-from .models import Article, Category
+from .models import Article, Category,IPAddress
 
 # Admin header change
 admin.site.site_header = "وبلاگ جنگویی من"
 
 # Register your models here.
+
+
+#actions
 def make_published(modeladmin, request, queryset):
         rows_updated = queryset.update(status='p')
         if rows_updated == 1:
@@ -44,3 +47,4 @@ class ArticleAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Article, ArticleAdmin)
+admin.site.register(IPAddress)
