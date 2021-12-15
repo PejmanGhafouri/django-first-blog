@@ -26,7 +26,10 @@
 
         {% block header %}
         {% endblock %}
-        {% popular_articles %}
+        <aside>
+          {% popular_articles %}
+          {% hot_articles %}
+        </aside>
 
         {% for article in object_list %}
           <div class="post-preview">
