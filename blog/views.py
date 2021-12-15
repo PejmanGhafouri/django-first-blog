@@ -1,6 +1,5 @@
 from django.views.generic import ListView, DetailView
 from account.models import User
-from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from account.mixins import AuthorAccessMixin
 # from django.http import HttpResponse, JsonResponse, Http404
