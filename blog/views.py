@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from account.mixins import AuthorAccessMixin
 # from django.http import HttpResponse, JsonResponse, Http404
 from .models import Article, Category
-
+from django.db.models import Q
 
 # Create your views here.
 class ArticleList(ListView):
@@ -59,4 +59,18 @@ class AuthorList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['author'] = author
+        return context
+
+
+class SearchList(ListView):
+    paginate_by = 5
+    template_name = 'blog/search_list.html'
+
+    def get_queryset(self):
+        search = self.request.GET.get('q')
+        return Article.objects.filter(Q(description__icontains = search)and Q(title__icontains = search))
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['search'] = self.request.GET.get('q')
         return context
