@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_gravatar',
     'comment',
-    'star_ratings'
+    'star_ratings',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
