@@ -57,7 +57,7 @@ class Article(models.Model):
 	)
 	author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='articles', verbose_name="نویسنده")
 	title = models.CharField(max_length=200, verbose_name="عنوان مقاله")
-	slug = models.SlugField(max_length=100, unique=True, verbose_name="آدرس مقاله")
+	slug = models.SlugField(max_length=100, unique=True,allow_unicode=True ,verbose_name="آدرس مقاله")
 	category = models.ManyToManyField(Category, verbose_name="دسته‌بندی", related_name="articles")
 	description = models.TextField(verbose_name="محتوا")
 	thumbnail = models.ImageField(upload_to="images", verbose_name="تصویر مقاله")
