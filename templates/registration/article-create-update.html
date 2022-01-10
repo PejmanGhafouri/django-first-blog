@@ -41,7 +41,7 @@
             </div>
           </div>
           {% endif %}
-          <div class="col-6">{{ form.is_special|as_crispy_field }}</div>
+          <div class="col-6">{{ form.is_free|as_crispy_field }}</div>
         </div>
         <button class="btn btn-warning">ارسال مقاله</button>
         {% if user.is_superuser and request.resolver_match.kwargs.pk %}
